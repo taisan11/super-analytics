@@ -1,0 +1,16 @@
+{
+  "name": ".",
+  "scripts": {
+    "dev": "wrangler dev src/index.tsx",
+    "deploy": "wrangler deploy --minify src/index.tsx"
+  },
+  "dependencies": {
+    "@hono/valibot-validator": "^0.3.0",
+    "hono": "^4.4.6",
+    "valibot": "^0.32.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240529.0",
+    "wrangler": "^3.57.2"
+  }
+}

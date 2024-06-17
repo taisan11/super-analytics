@@ -1,6 +1,10 @@
 import { Hono } from 'hono'
 import { jsxRenderer } from "hono/jsx-renderer";
 import v1 from './v1';
+import { etag } from 'hono/etag'
+import { cors } from 'hono/cors'
+import { secureHeaders } from 'hono/secure-headers'
+import { logger } from 'hono/logger'
 
 declare module "hono" {
     interface ContextRenderer {
@@ -9,6 +13,15 @@ declare module "hono" {
   }
 
 const app = new Hono()
+
+// useコーナー
+app.use('*', cors())
+// app.use('*', csrf({ origin: 'myapp.example.com' }))
+app.use('*',secureHeaders({}))
+app.use('*', etag())
+// app.use('*', prettyJSON())
+app.use(logger())//デバッグ用
+// 終り
 
 app.get(
   "*",

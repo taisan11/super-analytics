@@ -15,6 +15,10 @@ const analytics_post_schema = v.object({})
 v1.get("/",(c) =>{
     return c.json({data:"api",version:"v1"})
 })
+v1.get("/",(c)=>{
+  c.header("Content-Type","text/javascript")
+  return c.body("a")}
+)
 v1.post(
     '/analytics',
     vValidator('json', analytics_post_schema, (result, c) => {

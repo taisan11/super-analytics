@@ -80,6 +80,16 @@ app.get('kiyaku',(c)=>{
     </>
     ,{title:"利用規約"})
 })
+app.get('test',(c)=>{
+  return c.render(
+    <>
+    <h2>テストページ</h2>
+    <p>これは、テストページです。</p>
+    <script type="module" src="http://localhost:5173/api/v1/analytics/aaa"></script>
+    </>
+    ,{title:"テストページ"}
+  )
+})
 
 // API
 app.route("/api/v1",v1)

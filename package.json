@@ -1,16 +1,22 @@
 {
   "name": ".",
+  "type": "module",
   "scripts": {
-    "dev": "wrangler dev src/index.tsx",
-    "deploy": "wrangler deploy --minify src/index.tsx"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "wrangler pages dev",
+    "deploy": "$npm_execpath run build && wrangler pages deploy"
   },
   "dependencies": {
-    "@hono/valibot-validator": "^0.3.0",
-    "hono": "^4.4.6",
-    "valibot": "^0.32.0"
+    "@std/http": "npm:@jsr/std__http",
+    "hono": "^4.4.6"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240529.0",
-    "wrangler": "^3.57.2"
+    "@cloudflare/workers-types": "^4.20240614.0",
+    "@hono/vite-cloudflare-pages": "^0.4.1",
+    "@hono/vite-dev-server": "^0.12.2",
+    "esbuild": "^0.21.5",
+    "vite": "^5.3.1",
+    "wrangler": "^3.60.3"
   }
 }
